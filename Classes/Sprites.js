@@ -1,9 +1,13 @@
 class Sprite {
-    constructor(src = ""){
+    constructor(src = null){
         this.images = [];
-        this.images[0] = new images;
-        this.images[0].src = src;
         this.frame = 0;
+
+        //if you passed in an inital image
+        if(src){
+            this.images[0] = new images;
+            this.images[0].src = src;
+        }
     }
 
     //adds an image to the list of images at the passed in index, if no index is
@@ -34,5 +38,12 @@ class Sprite {
     //resets the frame counter
     reset(){
         this.frame = 0;
+    }
+
+    //imports multiple images to add to the sprite set
+    import(src,type,num = 1){
+        for (let i = 0; i < num; i++){
+            this.addImage(src + i + type);
+        }
     }
 }
