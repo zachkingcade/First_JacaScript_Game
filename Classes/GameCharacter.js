@@ -4,17 +4,25 @@ class Gamecharacter {
         this.y = y;
         this.width = width;
         this.height = height;
-        this.xSpeed = xSpeed;
-        this.ySpeed = ySpeed;
-        this.sprites = {};
-        this.sounds = {};
+        this.states = {};
+        this.stateNum = 0;
     }
 
     moveHor() {
-        this.x += this.xSpeed;
+        this.x += this.states[this.stateNum].xSpeed;
     }
 
     moveVer() {
-        this.y += this.ySpeed;
+        this.y += this.states[this.stateNum].ySpeed;
     }
+
+    State = class{
+        constructor(xs,ys){
+            this.xSpeed = xs;
+            this.ySpeed = ys;
+            this.sprites = [];
+            this.sounds = [];
+        }
+    }
+
 }
